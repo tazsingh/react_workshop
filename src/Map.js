@@ -18,8 +18,18 @@ export default class Map extends React.Component {
     zoomLevel: 13,
   }
 
+  static childContextTypes = {
+    map: React.PropTypes.object,
+  }
+
   state = {
     map: null,
+  }
+
+  getChildContext () {
+    return {
+      map: this.state.map,
+    }
   }
 
   componentDidMount () {
@@ -46,17 +56,19 @@ export default class Map extends React.Component {
     let mappedChildren = []
 
     if (this.state.map) {
-      mappedChildren = React.Children.map(
-        this.props.children,
-        (child) => {
-          return React.cloneElement(
-            child,
-            {
-              map: this.state.map,
-            }
-          )
-        }
-      )
+      mappedChildren = this.props.children
+
+      // mappedChildren = React.Children.map(
+      //   this.props.children,
+      //   (child) => {
+      //     return React.cloneElement(
+      //       child,
+      //       {
+      //         map: this.state.map,
+      //       }
+      //     )
+      //   }
+      // )
     }
 
     return (
