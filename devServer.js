@@ -22,9 +22,9 @@ app.get('*', (req, res) => {
 app.listen(1337, () => {
   console.log('Listening on port 1337')
 
-  const openCommand = execSync('which open', { encoding: 'utf-8' })
+  // const openCommand = execSync('which open', { encoding: 'utf-8' })
 
-  if (openCommand) {
-    execSync(`open http://localhost:1337`)
-  }
+  // if (openCommand) {
+  //   execSync(`open http://localhost:1337`)
+  // }
 })
