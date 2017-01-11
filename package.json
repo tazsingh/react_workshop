@@ -5,8 +5,7 @@
   "author": "Taz Singh",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --inline",
-    "dev": "babel-node devServer.js"
+    "start": "babel-node devServer.js"
   },
   "dependencies": {
     "babel-polyfill": "^6.20.0",
