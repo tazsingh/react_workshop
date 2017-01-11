@@ -5,6 +5,7 @@ import Map from './Map'
 
 ReactDOM.render(
   <div>
-    <Map />
+    <Map
+    />
   </div>
 , document.getElementById('app'))

@@ -11,8 +11,7 @@ const app = express()
 const compiler = webpack(config)
 
 app.use(devMiddleware(compiler, {
-  noInfo: true,
-  publicPath: config.output.publicPath
+  publicPath: config.output.publicPath,
 }))
 
 app.get('*', (req, res) => {
