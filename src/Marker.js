@@ -5,6 +5,7 @@ export default class Marker extends React.Component {
   static propTypes = {
     latitude: React.PropTypes.number.isRequired,
     longitude: React.PropTypes.number.isRequired,
+    map: React.PropTypes.object,
   }
 
   static defaultProps = {
@@ -13,17 +14,13 @@ export default class Marker extends React.Component {
   }
 
   componentDidMount () {
-    // map
-
     leaflet.marker([
       this.props.latitude,
       this.props.longitude,
-    ]) // .addTo(map)
+    ]).addTo(this.props.map)
   }
 
   render () {
-    return (
-      <div />
-    )
+    return null
   }
 }

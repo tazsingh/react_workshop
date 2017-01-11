@@ -6,7 +6,10 @@ export default class Map extends React.Component {
     latitude: React.PropTypes.number.isRequired,
     longitude: React.PropTypes.number.isRequired,
     zoomLevel: React.PropTypes.number.isRequired,
-    children: React.PropTypes.element,
+    children: React.PropTypes.oneOfType([
+      React.PropTypes.arrayOf(React.PropTypes.element),
+      React.PropTypes.element,
+    ]),
   }
 
   static defaultProps = {
@@ -28,11 +31,11 @@ export default class Map extends React.Component {
     ], this.props.zoomLevel
     )
 
+    this.setState({ map })
+
     leaflet.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map)
-
-    this.setState({ map })
   }
 
   bindMapDiv = (element) => {
@@ -40,7 +43,7 @@ export default class Map extends React.Component {
   }
 
   render () {
-    let mappedChildren = this.props.children
+    let mappedChildren = []
 
     if (this.state.map) {
       mappedChildren = React.Children.map(
