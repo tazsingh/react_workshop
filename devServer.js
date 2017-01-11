@@ -6,7 +6,7 @@ import config from './webpack.config'
 
 import devMiddleware from 'webpack-dev-middleware'
 
-const indexHTML = fs.readFileSync('./build/index.html')
+const indexHTML = fs.readFileSync('./index.html')
 const app = express()
 const compiler = webpack(config)
 

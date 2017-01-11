@@ -5,7 +5,7 @@
   "author": "Taz Singh",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --content-base build/",
+    "start": "webpack-dev-server --inline",
     "dev": "babel-node devServer.js"
   },
   "dependencies": {

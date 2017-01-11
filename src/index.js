@@ -1,3 +1,8 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 
-console.log('it works!!!')
+ReactDOM.render(
+  <div>
+    <p>Content here!</p>
+  </div>
+, document.getElementById('app'))
